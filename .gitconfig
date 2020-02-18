@@ -1,0 +1,16 @@
+[user]
+	email = simon.lizotte.1@ulaval.ca
+	name = Simon Lizotte
+[alias]
+	st = status
+	it = init
+	ps = push
+	ad = add .
+	cm = commit -m
+	fe = fetch
+        me = merge
+        co = checkout
+        ca = commit --amend
+        br = branch
+[core]
+	editor = vim
