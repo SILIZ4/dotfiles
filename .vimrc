@@ -14,13 +14,18 @@ set wrap
 set number
 set relativenumber
 set cursorline
+set mouse=a
+set smartindent
+" Remove newline added at end of file
+set nofixeol
 
 syntax on
 filetype plugin on
+filetype indent on
 
 " Color scheme
 set background=dark
-colorscheme badwolf
+colorscheme deus
 
 " Status bar
 set laststatus=2
@@ -46,7 +51,7 @@ command Q q
 command W w
 
 " Remove tailing white spaces with <F5>
-nnoremap <silent> <F5> :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
+nnoremap <silent> <F4> :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
 
 " Display output of shell in split window
 function! s:ExecuteInShell(command)
@@ -78,19 +83,25 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+" -- Syntastic ---
+" Disable auto syntax check
+let g:syntastic_mode_map = {'mode': 'passive', 'active_filetypes': [], 'passive_filetype': []}
 " Highlight syntax error
 highlight SyntasticError guibg=#2f0000
 " Multiple syntax check
 "let g:syntastic_aggregate_errors = 1
 " Map syntax check to <F6>
 nnoremap <F6> :SyntasticCheck<CR>
+" LaTeX syntax checker
+let g:syntastic_tex_checkers = ['lachex', 'text/language_check']
 
 " LaTeX pdf viewer
 let g:livepreview_previewer = 'zathura'
-let g:livepreview_engine = 'xelatex'
+let g:livepreview_engine = 'pdflatex'
 let g:livepreview_cursorhold_recompile = 0
 
-" coc.nvim setup
+" ---------- coc.nvim setup ----------
 " Set tab to autocomplete
 set hidden
 set updatetime=300
@@ -117,3 +128,18 @@ nmap <silent> gr <Plug>(coc-references)
 
 " Rename current word <F2>
 nmap <F2> <Plug>(coc-rename)
+"
+" Use <C-l> for trigger snippet expand.
+imap <C-l> <Plug>(coc-snippets-expand)
+
+" Use <C-j> for select text for visual placeholder of snippet.
+vmap <C-j> <Plug>(coc-snippets-select)
+
+" Use <C-j> for jump to next placeholder, it's default of coc.nvim
+let g:coc_snippet_next = '<c-j>'
+
+" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
+let g:coc_snippet_prev = '<c-k>'
+
+" Use <C-j> for both expand and jump (make expand higher priority.)
+imap <C-j> <Plug>(coc-snippets-expand-jump)

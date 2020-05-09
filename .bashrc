@@ -159,9 +159,8 @@ alias ubrc="source ~/.bashrc"
 alias :q="exit"
 alias q="exit"
 
-alias dotfiles=/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME
 alias jn="jupyter-notebook"
-alias rm-latex="rm *.out *.bbl *.aux *.log *.blg *.sta"
+alias rm-latex="rm *.out *.bbl *.aux *.log *.blg *.sta *.toc *.nav *.snm"
 alias mendeley="~/opt/mendeley/mendeleydesktop-1.19.4-linux-x86_64/bin/mendeleydesktop"
 alias foxit="~/opt/foxitreader/FoxitReader"
 
@@ -174,4 +173,3 @@ mcdir ()
     mkdir -p -- "$1" &&
     cd -P -- "$1"
 }
-screenfetch
