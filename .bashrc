@@ -1,6 +1,7 @@
 #
 # ~/.bashrc
 #
+PATH="${PATH:+${PATH}:}$HOME/.gem/ruby/2.7.0/bin"
 
 [[ $- != *i* ]] && return
 
@@ -155,14 +156,17 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias brc="vim ~/.bashrc"
 alias vrc="vim ~/.vimrc"
+alias dswp="rm ~/.cache/vim/swap/*"
 alias ubrc="source ~/.bashrc"
 alias :q="exit"
 alias q="exit"
 
+# Programs
 alias jn="jupyter-notebook"
 alias rm-latex="rm *.out *.bbl *.aux *.log *.blg *.sta *.toc *.nav *.snm"
 alias mendeley="~/opt/mendeley/mendeleydesktop-1.19.4-linux-x86_64/bin/mendeleydesktop"
 alias foxit="~/opt/foxitreader/FoxitReader"
+alias bundle="~/.gem/ruby/2.7.0/bin/bundle"
 
 # Desactivate screenkey
 alias skil="pkill -f screenkey"
@@ -172,4 +176,10 @@ mcdir ()
 {
     mkdir -p -- "$1" &&
     cd -P -- "$1"
+}
+
+# Activate python environnement
+pyenv ()
+{
+    source ~/Documents/PyEnvs/$1/bin/activate
 }
