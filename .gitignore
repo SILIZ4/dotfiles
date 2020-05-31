@@ -5,4 +5,5 @@
 !.xinitrc
 !.Xressources
 !.gitconfig
-|.gitignore
+!.gitignore
+!install-vim-packages.sh
