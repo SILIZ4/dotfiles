@@ -3,7 +3,11 @@
 !.bashrc
 !.vimrc
 !.xinitrc
-!.Xressources
+!.Xresources
 !.gitconfig
 !.gitignore
 !install-vim-packages.sh
+
+!.config/i3/config
+!.config/powerline/
+!.config/polybar/

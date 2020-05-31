@@ -203,8 +203,9 @@ gaps outer 10
         #}
 #}
 
-exec_always --no-status_id ~/.config/polybar/launch.sh &
 
 assign [class="firefox"] $ws1
 for_window [class="URxvt"] border none
 exec firefox
+
+exec_always --no-startup-id ~/.config/polybar/launch.sh &
