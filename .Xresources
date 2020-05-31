@@ -1,0 +1,46 @@
+xterm*background: black
+xterm*foreground: lightgray
+xterm*faceName: Hack
+xterm*faceSize: 13
+
+URxvt.scrollBar: false
+URxvt.blink: false
+URxvt.background: #0F0F0F
+URxvt.foreground: #D4D4D4
+URxvt.font: xft:Hack-Regular:pixelsize=18
+URxvt.fading: 10
+! Tabs
+URxvt.perl-ext-common: ...,tabbed,...
+URxvt.tabbed.tabbar-fg: 2
+URxvt.tabbed.tabbar-bg: 0
+URxvt.tabbed.tab-fg: 3
+URxvt.tabbed.tab-bg: 0
+! Clickable URL
+URxvt.perl-ext-common: default,matcher
+URxvt.url-launcher: /usr/bin/xdg-open
+URxvt.matcher.button: 1
+
+!State              bg       fg       bgalt    hlbg     hlfg
+rofi.color-normal: #030c21, #8196c7, #030c21, #8697bf, #030c21
+!                   bg       border   separator
+rofi.color-window: #030c21, #030c21, #8196c7
+
+rofi.font: FiraSans-Normal 14
+rofi.modi: run,window,ssh
+
+rofi.width: 30
+rofi.height: 50
+rofi.padding: 10
+
+rofi.opacity: 60
+rofi.fake-transparency: true
+rofi.bw: 2
+rofi.separator-style: solid
+rofi.hide-scrollbar: true
+rofi.sidebar-mode: true
+
+
+rofi.eh: 1
+rofi.lines: 5
+
+rofi.terminal: urxvt
