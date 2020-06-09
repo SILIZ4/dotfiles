@@ -1,7 +1,7 @@
 #
 # ~/.bashrc
 #
-PATH="${PATH:+${PATH}:}$HOME/.gem/ruby/2.7.0/bin"
+PATH="${PATH:+${PATH}:}$HOME/.gem/ruby/2.7.0/bin $HOME/.local/bin/"
 
 [[ $- != *i* ]] && return
 
@@ -140,6 +140,8 @@ ex ()
 }
 # Custom PS1
 export PS1="\[\e[35m\]\u\[\e[m\]  \[\e[93m\]\W\[\e[m\]\[\e[95m\] \\$\[\e[m\] "
+# Custom ls colors
+LS_COLORS=$LS_COLORS:'di=1;35:' ; export LS_COLORS
 
 # Limit bash history to 10k lines
 export HISTFILESIZE=20000
@@ -168,7 +170,7 @@ alias mendeley="~/opt/mendeley/mendeleydesktop-1.19.4-linux-x86_64/bin/mendeleyd
 alias foxit="~/opt/foxitreader/FoxitReader"
 alias bundle="~/.gem/ruby/2.7.0/bin/bundle"
 
-# Desactivate screenkey
+# Deactivate screenkey
 alias skil="pkill -f screenkey"
 
 # Make directory and enter it

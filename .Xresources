@@ -21,9 +21,9 @@ URxvt.url-launcher: /usr/bin/xdg-open
 URxvt.matcher.button: 1
 
 !State              bg       fg       bgalt    hlbg     hlfg
-rofi.color-normal: #1c021c, #bf99bf, #360c36, #bf99bf, #360c36
+rofi.color-normal: #110214, #ffebfe, #360e34, #d15ecb, #110214
 !                   bg       border   separator
-rofi.color-window: #1c021c, #360c36, #bf99bf
+rofi.color-window: #110214, #360c36, #bf99bf
 
 rofi.font: FiraSans-Normal 14
 rofi.modi: run,window,ssh

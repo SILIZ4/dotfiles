@@ -74,7 +74,7 @@ font-4 = "Font Awesome 5 Brands:pixelsize=10;1"
 
 modules-left = i3
 modules-center = 
-modules-right = wired-network mysep wireless-network mysep memory mysep cpu mysep pavolume mysep date time
+modules-right = battery mysep wired-network mysep wireless-network mysep memory mysep cpu mysep pavolume mysep date time
 
 separator = 
 
