@@ -1,7 +1,7 @@
 #
 # ~/.bashrc
 #
-PATH="${PATH:+${PATH}:}$HOME/.gem/ruby/2.7.0/bin $HOME/.local/bin/"
+PATH="${PATH:+${PATH}:}$HOME/.gem/ruby/2.7.0/bin $HOME/.local/bin/ $HOME/opt/"
 
 [[ $- != *i* ]] && return
 
