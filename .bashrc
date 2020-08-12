@@ -158,10 +158,13 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias brc="vim ~/.bashrc"
 alias vrc="vim ~/.vimrc"
+alias lswap="ls ~/.cache/vim/swap"
+alias rmswap="rm ~/.cache/vim/swap/*"
 alias dswp="rm ~/.cache/vim/swap/*"
 alias ubrc="source ~/.bashrc"
 alias :q="exit"
 alias q="exit"
+alias dotfiles="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"
 
 # Programs
 alias jn="jupyter-notebook"

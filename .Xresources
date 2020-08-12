@@ -7,7 +7,7 @@ URxvt.scrollBar: false
 URxvt.blink: false
 URxvt.background: #0F0F0F
 URxvt.foreground: #D4D4D4
-URxvt.font: xft:Hack-Regular:pixelsize=18
+URxvt.font: xft:Hack-Regular:pixelsize=16
 URxvt.fading: 10
 ! Tabs
 URxvt.perl-ext-common: ...,tabbed,...

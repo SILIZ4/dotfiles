@@ -25,7 +25,7 @@ filetype indent on
 
 " Color scheme
 set background=dark
-colorscheme hybrid
+colorscheme stellarized
 
 " Status bar
 set laststatus=2
