@@ -1,9 +1,12 @@
 *
 
 !.bashrc
+!.zshrc
+!.p10k.zsh
 !.vimrc
 !.xinitrc
 !.Xresources
+!.Xdefaults
 !.gitconfig
 !.gitignore
 !install-vim-packages.sh
