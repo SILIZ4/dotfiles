@@ -18,6 +18,8 @@ set mouse=a
 set smartindent
 " Remove newline added at end of file
 set nofixeol
+" Shorten timeout of mappings
+set timeoutlen=150
 
 syntax on
 filetype plugin on
