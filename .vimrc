@@ -27,10 +27,15 @@ filetype indent on
 set background=dark
 colorscheme stellarized
 
-" Status bar
-set laststatus=2
+
+" Powerline status bar
+set laststatus=2 " Always display the statusline in all windows
+set showtabline=2 " Always display the tabline, even if there is only one tab
+set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
+set t_Co=256
+
 let g:lightline = {
-      \ 'colorscheme': 'wombat',
+      \ 'colorscheme': 'solarized',
 \ }
 
 " Automatic reloading of .vimrc
@@ -98,7 +103,7 @@ let g:syntastic_tex_checkers = ['lachex', 'text/language_check']
 
 " LaTeX pdf viewer
 let g:livepreview_previewer = 'zathura'
-let g:livepreview_engine = 'pdflatex'
+let g:livepreview_engine = 'xelatex'
 let g:livepreview_cursorhold_recompile = 0
 
 " ---------- coc.nvim setup ----------
