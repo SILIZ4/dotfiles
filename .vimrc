@@ -19,7 +19,7 @@ set smartindent
 " Remove newline added at end of file
 set nofixeol
 " Shorten timeout of mappings
-set timeoutlen=150
+set timeoutlen=500
 
 syntax on
 filetype plugin on
@@ -28,7 +28,9 @@ filetype indent on
 " Color scheme
 set background=dark
 colorscheme stellarized
-
+" set transparent background
+hi Normal guibg=NONE ctermbg=NONE
+hi CursorLine guibg=NONE ctermbg=NONE cterm=bold
 
 " Powerline status bar
 set laststatus=2 " Always display the statusline in all windows
