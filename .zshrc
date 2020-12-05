@@ -7,6 +7,8 @@ fi
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+PATH="${PATH:+${PATH}:}$HOME/.gem/ruby/2.7.0/bin $HOME/.local/bin/ $HOME/opt/"
+
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/simon/.oh-my-zsh"
