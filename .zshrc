@@ -5,6 +5,10 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+if [ -f ~/opt/zsh-insulter/src/zsh.command-not-found ]; then
+    . ~/opt/zsh-insulter/src/zsh.command-not-found
+fi
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 PATH="${PATH:+${PATH}:}$HOME/.gem/ruby/2.7.0/bin $HOME/.local/bin/ $HOME/opt/"
@@ -110,8 +114,6 @@ source $ZSH/oh-my-zsh.sh
 
 # Custom aliases
 alias l="ls"
-alias s="ls"
-alias sl="ls"
 alias la="ls -la"
 alias ..="cd .."
 alias ...="cd ../.."

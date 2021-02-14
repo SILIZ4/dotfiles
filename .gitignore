@@ -1,16 +1,18 @@
 *
 
-!.bashrc
-!.zshrc
-!.p10k.zsh
-!.vimrc
-!.xinitrc
-!.Xresources
-!.Xdefaults
 !.gitconfig
 !.gitignore
-!install-vim-packages.sh
+!.bashrc
+!.vimrc
+!.zshrc
+!.p10k.zsh
+!.xinitrc
+!.Xresources
+!.fehbg
 
+!misc/gentoo_system/gentoo_system/.gitignore
 !.config/i3/config
 !.config/powerline/
 !.config/polybar/
+
+!install-vim-packages.sh

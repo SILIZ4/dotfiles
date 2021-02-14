@@ -1,5 +1,5 @@
 # Load background
-feh --no-fehbg --bg-scale '/home/simon/Pictures/wallpapers/purple-wallpaper.jpg'
+. ~/.fehbg
 
 # Apply Xresources config to terminal emulator
 [[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources

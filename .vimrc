@@ -59,7 +59,7 @@ set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 command Q q
 command W w
 
-" Remove tailing white spaces with <F5>
+" Remove trailing white spaces with <F5>
 nnoremap <silent> <F4> :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
 
 " Display output of shell in split window
