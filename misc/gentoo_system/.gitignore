@@ -1,0 +1,7 @@
+!portage-etc/make.conf
+!portage-etc/package.use/zz-autounmask
+!portage-etc/repos.conf
+!portage-etc/package.unmask
+!portage-etc/package.license
+
+!portage-var/world

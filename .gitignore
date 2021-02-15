@@ -10,7 +10,9 @@
 !.Xresources
 !.fehbg
 
-!misc/gentoo_system/gentoo_system/.gitignore
+!misc/
+!misc/gentoo_system/
+!misc/gentoo_system/*
 !.config/i3/config
 !.config/powerline/
 !.config/polybar/
