@@ -11,7 +11,7 @@ fi
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-PATH="${PATH:+${PATH}:}$HOME/.gem/ruby/2.7.0/bin $HOME/.local/bin/ $HOME/opt/"
+PATH="${PATH:+${PATH}:}$HOME/.gem/ruby/2.7.0/bin:$HOME/.local/bin/:$HOME/opt/"
 
 
 # Path to your oh-my-zsh installation.
@@ -130,33 +130,43 @@ alias dswp="rm ~/.cache/vim/swap/*"
 alias :q="exit"
 alias q="exit"
 alias dotfiles="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"
+alias grahamfs="sshfs siliz4@graham.computecanada.ca:/home/siliz4/ /mnt/computecanada -o follow_symlinks"
+alias grahamssh="ssh siliz4@graham.computecanada.ca"
+alias belugafs="sshfs siliz4@beluga.computecanada.ca:/home/siliz4/ /mnt/computecanada -o follow_symlinks"
+alias belugassh="ssh siliz4@beluga.computecanada.ca"
 
 # Programs
 alias jn="jupyter-notebook"
-alias rm-latex="rm *.out *.bbl *.aux *.log *.blg *.sta *.toc *.nav *.snm"
-alias mendeley="~/opt/mendeley/mendeleydesktop-1.19.4-linux-x86_64/bin/mendeleydesktop"
-alias foxit="~/opt/foxitreader/FoxitReader"
-alias bundle="~/.gem/ruby/2.7.0/bin/bundle"
+alias rm-latex="rm *.out(N) *.bbl(N) *.aux(N) *.log(N) *.blg(N) *.sta(N) *.toc(N) *.nav(N) *.snm(N) *.run.xml(N) *.bcf(N)"
+alias exercism="~/opt/exercism/exercism"
 
 # Deactivate screenkey
 alias skil="pkill -f screenkey"
 
+samefile () {
+    cmp --silent "$1" "$2" || echo "files are different"
+}
+
+texbib () {
+    xelatex "$1.tex" >> /dev/null
+    bibtex "$1.aux" >> /dev/null
+    xelatex "$1.tex" >> /dev/null
+    xelatex "$1.tex" >> /dev/null
+}
+
 # Make directory and enter it
-mcdir ()
-{
+mcdir () {
     mkdir -p -- "$1" &&
     cd -P -- "$1"
 }
 
 # Change directory and list content
-cl ()
-{
+cl () {
     cd "$1" && ls
 }
 
 # Activate python environnement
-pyenv ()
-{
+pyenv () {
     source ~/Documents/PyEnvs/$1/bin/activate
 }
 

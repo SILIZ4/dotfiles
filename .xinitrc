@@ -7,4 +7,12 @@
 # Set keyboard layout
 setxkbmap -layout ca
 
-exec i3
+#nm-applet &
+#exec i3
+
+xset +fp /home/simon/.fonts &
+while xsetroot -name "test"
+do
+   sleep 10
+done &
+exec dwm
