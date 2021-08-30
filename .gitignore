@@ -1,19 +1,24 @@
 *
 
+!.config/i3/config
+!.config/polybar/
+!.config/powerline/
+
+!.bashrc
+!.fehbg
 !.gitconfig
 !.gitignore
-!.bashrc
-!.vimrc
-!.zshrc
 !.p10k.zsh
+!.vim/
+!.vim/additionnal_functions.vim
+!.vim/plugconfs/
+!.vim/plugconfs/*
+!.vimrc
 !.xinitrc
 !.Xresources
-!.fehbg
+!.zshrc
 
 !misc/gentoo_system/
 !misc/gentoo_system/*
-!.config/i3/config
-!.config/powerline/
-!.config/polybar/
 
 !install-vim-packages.sh
