@@ -1,6 +1,6 @@
 xterm*background: black
 xterm*foreground: lightgray
-xterm*faceName: Hack
+xterm*faceName: Mensch
 xterm*faceSize: 13
 
 
@@ -12,7 +12,7 @@ URxvt.font: xft:Hack-Regular:pixelsize=16
 
 URxvt.fading:           20
 URxvt*fadeColor:        black
-URxvt*transparent:      true
+URxvt*transparent:      false
 URxvt*shading:          20
 
 URxvt.iso14755: false
@@ -40,26 +40,46 @@ URxvt.perl-ext-common: default,matcher
 URxvt.url-launcher: /usr/bin/xdg-open
 URxvt.matcher.button: 1
 
-!State              bg       fg       bgalt    hlbg     hlfg
-rofi.color-normal: #110214, #ffebfe, #360e34, #d15ecb, #110214
-!                   bg       border   separator
-rofi.color-window: #110214, #360c36, #bf99bf
+!Solarized color scheme
+*background: #002b36
+*foreground: #657b83
+!!*fading: 40
+*fadeColor: #002b36
+*cursorColor: #93a1a1
+*pointerColorBackground: #586e75
+*pointerColorForeground: #93a1a1
 
-rofi.font: FiraSans-Normal 14
-rofi.modi: run,window,ssh
+!! black dark/light
+*color0: #073642
+*color8: #002b36
 
-rofi.width: 30
-rofi.height: 50
-rofi.padding: 10
+!! red dark/light
+*color1: #dc322f
+*color9: #cb4b16
 
-rofi.opacity: 60
-rofi.bw: 2
-rofi.separator-style: solid
-rofi.hide-scrollbar: true
-rofi.sidebar-mode: true
+!! green dark/light
+*color2: #859900
+*color10: #586e75
 
+!! yellow dark/light
+*color3: #b58900
+*color11: #657b83
 
-rofi.eh: 1
-rofi.lines: 5
+!! blue dark/light
+*color4: #268bd2
+*color12: #839496
+
+!! magenta dark/light
+*color5: #d33682
+*color13: #6c71c4
+
+!! cyan dark/light
+*color6: #2aa198
+*color14: #93a1a1
+
+!! white dark/light
+*color7: #eee8d5
+*color15: #fdf6e3
+
 
 rofi.terminal: urxvt

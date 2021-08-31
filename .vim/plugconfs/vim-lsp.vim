@@ -10,9 +10,19 @@ endif
 
 let g:lsp_settings = {
 \  'clangd': {'cmd': ['clangd']},
-\  'efm-langserver': {'disabled': v:false}
+\  'efm-langserver': {'disabled': v:false},
+\  'pyls': {
+\    'workspace_config': {
+\      'pyls': {
+\        'configurationSources': ['rope', 'pyflakes', 'yapf']
+\      }
+\    }
+\  },
 \}
 
-map <LEADER>i :LspHover<CR>
-map gd :LspDeclaration<CR>
-autocmd FileType python map gd :LspDefinition<CR>
+nnoremap <LEADER>i :LspHover<CR>
+nnoremap <LEADER>r :LspRename<CR>
+nnoremap <LEADER>e :LspNextError<CR>
+nnoremap <LEADER>w :LspNextWarning<CR>
+nnoremap gd :LspDeclaration<CR>
+autocmd FileType python nnoremap gd :LspDefinition<CR>

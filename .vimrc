@@ -2,15 +2,19 @@ call plug#begin()
 
 Plug 'preservim/nerdtree' |
         \ Plug 'Xuyuanp/nerdtree-git-plugin'
-
 Plug 'preservim/nerdcommenter'
+Plug 'tpope/vim-surround'
+Plug 'airblade/vim-gitgutter'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'vim-syntastic/syntastic'
 
-Plug 'lervag/vimtex'
+Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install', 'for': 'md' }
 
@@ -56,7 +60,8 @@ vnoremap < <gv
 autocmd! bufwritepost .vimrc source %
 
 
-map <C-n> :NERDTreeToggle<CR>
+noremap <LEADER>d :NERDTreeToggle<CR>
+noremap <LEADER>f :Files<CR>
 
 source ~/.vim/additionnal_functions.vim
 source ~/.vim/plugconfs/vim-lsp.vim
