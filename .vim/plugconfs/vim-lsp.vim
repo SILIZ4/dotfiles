@@ -8,16 +8,12 @@ if executable('ccls')
       \ })
 endif
 
+let g:lsp_diagnostics_echo_cursor = 1
+
+let g:lsp_settings_filetype_python = 'pyright-langserver'
 let g:lsp_settings = {
 \  'clangd': {'cmd': ['clangd']},
 \  'efm-langserver': {'disabled': v:false},
-\  'pyls': {
-\    'workspace_config': {
-\      'pyls': {
-\        'configurationSources': ['rope', 'pyflakes', 'yapf']
-\      }
-\    }
-\  },
 \}
 
 nnoremap <LEADER>i :LspHover<CR>
