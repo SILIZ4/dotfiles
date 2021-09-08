@@ -11,8 +11,9 @@ fi
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-PATH="${PATH:+${PATH}:}$HOME/.gem/ruby/2.7.0/bin:$HOME/.local/bin/:$HOME/opt/"
-
+export PATH="$HOME/.gem/ruby/2.7.0/bin:$PATH"
+export PATH="$PATH:$HOME/.local/bin/:$HOME/opt/"
+export LS_COLORS=$LS_COLORS:'di=1;35:*.tex=0;31:*.py=0;33';
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/simon/.oh-my-zsh"
@@ -130,10 +131,13 @@ alias dswp="rm ~/.cache/vim/swap/*"
 alias :q="exit"
 alias q="exit"
 alias dotfiles="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"
+
 alias grahamfs="sshfs siliz4@graham.computecanada.ca:/home/siliz4/ /mnt/computecanada -o follow_symlinks"
 alias grahamssh="ssh siliz4@graham.computecanada.ca"
 alias belugafs="sshfs siliz4@beluga.computecanada.ca:/home/siliz4/ /mnt/computecanada -o follow_symlinks"
 alias belugassh="ssh siliz4@beluga.computecanada.ca"
+alias cedarfs="sshfs siliz4@cedar.computecanada.ca:/home/siliz4/ /mnt/computecanada -o follow_symlinks"
+alias cedarssh="ssh siliz4@cedar.computecanada.ca"
 
 # Programs
 alias jn="jupyter-notebook"
