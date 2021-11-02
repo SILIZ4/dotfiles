@@ -7,7 +7,6 @@ Plug 'tpope/vim-surround'
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf.vim'
 Plug 'itchyny/lightline.vim'
-Plug 'elliotpatros/vim-endwise'
 Plug 'airblade/vim-rooter'
 Plug 'haya14busa/incsearch.vim'
 Plug 'nathanaelkane/vim-indent-guides'
@@ -26,7 +25,8 @@ Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown', { 'for': 'md' }
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install', 'for': 'md' }
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 'markdown' }
+
 
 call plug#end()
 
@@ -83,8 +83,9 @@ autocmd BufReadPost * normal `"
 noremap <LEADER>d :NERDTreeToggle<CR>
 noremap <LEADER>f :Files<CR>
 
-let g:NERDTreeIgnore = ['^build$', '*.bin$']
-let g:rooter_patterns = ['.git', 'build']
+let g:NERDTreeIgnore = ['^build$', '.*\.bin$', '^__pycache__$', '.*\.egg-info', ".*\.pdf$", ".*\.aux$"]
+let g:rooter_targets = "*.cpp,*.h,*.hpp,CMakeLists.txt"
+let g:rooter_patterns = ['.git', 'build', 'setup.py']
 
 
 source ~/.vim/additionnal_functions.vim
