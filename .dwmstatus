@@ -1,13 +1,56 @@
+battery="BAT0";
+
+has_battery() {
+    if [ -d /sys/class/power_supply/$battery ]; then
+        return 0;
+    fi
+    return 1;
+}
+
+get_battery_status() {
+    if [ $(cat /sys/class/power_supply/BAT0/status) = "Charging" ]; then
+        echo "+"
+    else
+        echo "-"
+    fi
+}
+
+get_battery_charge() {
+    echo $(( 100*$(cat /sys/class/power_supply/$battery/charge_now) / $(cat /sys/class/power_supply/$battery/charge_full) ))
+}
+
+get_battery_glyph() {
+    CHARGE="$(get_battery_charge)"
+    if [ "$CHARGE" -lt "10" ]; then
+        echo ""
+    elif [ "$CHARGE" -lt "25" ]; then
+        echo ""
+    elif [ "$CHARGE" -lt "50" ]; then
+        echo ""
+    elif [ "$CHARGE" -lt "75" ]; then
+        echo ""
+    else
+        echo ""
+    fi
+}
+
+get_battery_info() {
+    if has_battery; then
+        echo "$(get_battery_glyph):$(get_battery_charge)%$(get_battery_status) |"
+    fi
+}
+
 get_datetime() {
     date +" %a %d %b %Y | %I:%M %p"
 }
 
 get_status() {
-    echo " $(get_datetime)";
+    echo " $(get_battery_info)$(get_datetime)";
 }
 
+echo "$(get_status)"
 while true
 do
     xsetroot -name "$(get_status)";
-    sleep 1m;
+    sleep 1s;
 done
