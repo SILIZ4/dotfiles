@@ -81,7 +81,7 @@ alias cedarssh="ssh siliz4@cedar.computecanada.ca"
 
 # Programs
 alias jn="jupyter-notebook"
-alias rm-latex="rm *.out(N) *.bbl(N) *.aux(N) *.log(N) *.blg(N) *.sta(N) *.toc(N) *.nav(N) *.snm(N) *.run.xml(N) *.bcf(N)"
+alias rm-latex="rm *.out(N) *.bbl(N) *.aux(N) *.log(N) *.blg(N) *.sta(N) *.toc(N) *.nav(N) *.snm(N) *.run.xml(N) *.bcf(N) *.lof(N) *.lot(N) *.dvi(N) *.fls(N) *.fdb_latexmk(N)"
 alias exercism="~/opt/exercism/exercism"
 
 # Deactivate screenkey
