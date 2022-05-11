@@ -1,5 +1,6 @@
 call plug#begin()
 
+" Utility
 Plug 'preservim/nerdtree' |
         \ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'preservim/nerdcommenter'
@@ -10,22 +11,28 @@ Plug 'itchyny/lightline.vim'
 Plug 'airblade/vim-rooter'
 Plug 'haya14busa/incsearch.vim'
 Plug 'nathanaelkane/vim-indent-guides'
+Plug 'michaeljsmith/vim-indent-object'
+Plug 'godlygeek/tabular'
+Plug 'jeetsukumaran/vim-indentwise'
 
+" LSP
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'SirVer/ultisnips'
+Plug 'thomasfaingnaert/vim-lsp-snippets'
+Plug 'thomasfaingnaert/vim-lsp-ultisnips'
 
-Plug 'octol/vim-cpp-enhanced-highlight', { 'for': 'cpp' }
-Plug 'hdima/python-syntax', { 'for': 'python' }
+" Language specific packages
 Plug 'eigenfoo/stan-vim', { 'for': 'stan' }
-Plug 'tpope/vim-liquid'
 Plug 'elixir-editors/vim-elixir'
-Plug 'lervag/vimtex', { 'for': 'tex' }
-Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
-Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown', { 'for': 'md' }
+Plug 'hdima/python-syntax', { 'for': 'python' }
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 'markdown' }
+Plug 'lervag/vimtex', { 'for': 'tex' }
+Plug 'octol/vim-cpp-enhanced-highlight', { 'for': 'cpp' }
+Plug 'plasticboy/vim-markdown', { 'for': 'md' }
+Plug 'tpope/vim-liquid'
 
 
 call plug#end()
@@ -34,9 +41,12 @@ call plug#end()
 set backspace=indent,eol,start
 set clipboard=unnamedplus
 set cursorline
+set display+=truncate
+set hidden
 set incsearch
 set mouse=a
 set nofixeol
+set noshowmode
 set number
 set relativenumber
 set signcolumn=yes
@@ -44,7 +54,7 @@ set smartindent
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 set timeoutlen=500
 set wrap
-set noshowmode
+
 set laststatus=2 " Always display the statusline in all windows
 set showtabline=2 " Always display the tabline, even if there is only one tab
 
@@ -87,10 +97,14 @@ let g:NERDTreeIgnore = ['^build$', '.*\.bin$', '^__pycache__$', '.*\.egg-info', 
 let g:rooter_targets = "*.cpp,*.h,*.hpp,CMakeLists.txt"
 let g:rooter_patterns = ['.git', 'build', 'setup.py']
 
+let g:UltiSnipsExpandTrigger = "<F10>"
+let g:UltiSnipsJumpForwardTrigger = "<LEADER><ENTER>"
+let g:UltiSnipsJumpBackwardTrigger = "<F11>"
+
+let g:vimtex_quickfix_open_on_warning = 0 " vimtex no quickfix window
 
 source ~/.vim/additionnal_functions.vim
 source ~/.vim/plugconfs/asyncomplete.vim
 source ~/.vim/plugconfs/gitgutter.vim
 source ~/.vim/plugconfs/incsearch.vim
-source ~/.vim/plugconfs/latex-live-preview.vim
 source ~/.vim/plugconfs/vim-lsp.vim
