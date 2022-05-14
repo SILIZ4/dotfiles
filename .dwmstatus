@@ -8,10 +8,15 @@ has_battery() {
 }
 
 get_battery_status() {
-    if [ $(cat /sys/class/power_supply/BAT0/status) = "Charging" ]; then
+    STATUS="$(cat /sys/class/power_supply/$battery/status)"
+    if [ "$STATUS" = "Charging" ]; then
         echo "+"
-    else
+    elif [ "$STATUS" = "Discharging" ]; then
         echo "-"
+    elif [ "$STATUS" = "Full" ]; then
+        echo "="
+    else
+        echo "?"
     fi
 }
 
@@ -21,13 +26,13 @@ get_battery_charge() {
 
 get_battery_glyph() {
     CHARGE="$(get_battery_charge)"
-    if [ "$CHARGE" -lt "10" ]; then
+    if [ "$CHARGE" -lt "25" ]; then
         echo ""
-    elif [ "$CHARGE" -lt "25" ]; then
-        echo ""
     elif [ "$CHARGE" -lt "50" ]; then
-        echo ""
+        echo ""
     elif [ "$CHARGE" -lt "75" ]; then
+        echo ""
+    elif [ "$CHARGE" -lt "100" ]; then
         echo ""
     else
         echo ""
@@ -52,5 +57,5 @@ echo "$(get_status)"
 while true
 do
     xsetroot -name "$(get_status)";
-    sleep 1s;
+    sleep 30s;
 done
