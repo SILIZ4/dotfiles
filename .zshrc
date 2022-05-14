@@ -12,7 +12,7 @@ fi
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH="$HOME/.gem/ruby/2.7.0/bin:$PATH"
-export PATH="$PATH:$HOME/.local/bin/:$HOME/opt/"
+export PATH="$PATH:$HOME/.local/bin/:$HOME/opt/bin"
 export LS_COLORS=$LS_COLORS:'di=1;35:*.tex=0;31:*.py=0;33';
 
 # Path to your oh-my-zsh installation.
@@ -71,6 +71,7 @@ alias dswp="rm ~/.cache/vim/swap/*"
 alias :q="exit"
 alias q="exit"
 alias dotfiles="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"
+alias vim="vim --servername vimd"
 
 alias grahamfs="sshfs siliz4@graham.computecanada.ca:/home/siliz4/ /mnt/computecanada -o follow_symlinks"
 alias grahamssh="ssh siliz4@graham.computecanada.ca"
@@ -81,7 +82,7 @@ alias cedarssh="ssh siliz4@cedar.computecanada.ca"
 
 # Programs
 alias jn="jupyter-notebook"
-alias rm-latex="rm *.out(N) *.bbl(N) *.aux(N) *.log(N) *.blg(N) *.sta(N) *.toc(N) *.nav(N) *.snm(N) *.run.xml(N) *.bcf(N) *.lof(N) *.lot(N) *.dvi(N) *.fls(N) *.fdb_latexmk(N)"
+alias rm-latex="rm *.out(N) *.bbl(N) *.aux(N) *.log(N) *.blg(N) *.sta(N) *.toc(N) *.nav(N) *.snm(N) *.run.xml(N) *.bcf(N) *.lof(N) *.lot(N) *.dvi(N) *.fls(N) *.fdb_latexmk(N) *.xdv(N) *.synctex.gz(N)"
 alias exercism="~/opt/exercism/exercism"
 
 # Deactivate screenkey
