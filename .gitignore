@@ -15,8 +15,12 @@
 !.p10k.zsh
 !.vim/
 !.vim/additionnal_functions.vim
+!.vim/ftplugin/
+!.vim/ftplugin/*
 !.vim/plugconfs/
 !.vim/plugconfs/*
+!.vim/UltiSnips/
+!.vim/UltiSnips/*
 !.vimrc
 !.xinitrc
 !.Xresources

@@ -73,13 +73,6 @@ alias q="exit"
 alias dotfiles="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"
 alias vim="vim --servername vimd"
 
-alias grahamfs="sshfs siliz4@graham.computecanada.ca:/home/siliz4/ /mnt/computecanada -o follow_symlinks"
-alias grahamssh="ssh siliz4@graham.computecanada.ca"
-alias belugafs="sshfs siliz4@beluga.computecanada.ca:/home/siliz4/ /mnt/computecanada -o follow_symlinks"
-alias belugassh="ssh siliz4@beluga.computecanada.ca"
-alias cedarfs="sshfs siliz4@cedar.computecanada.ca:/home/siliz4/ /mnt/computecanada -o follow_symlinks"
-alias cedarssh="ssh siliz4@cedar.computecanada.ca"
-
 # Programs
 alias jn="jupyter-notebook"
 alias rm-latex="rm *.out(N) *.bbl(N) *.aux(N) *.log(N) *.blg(N) *.sta(N) *.toc(N) *.nav(N) *.snm(N) *.run.xml(N) *.bcf(N) *.lof(N) *.lot(N) *.dvi(N) *.fls(N) *.fdb_latexmk(N) *.xdv(N) *.synctex.gz(N)"
@@ -87,6 +80,14 @@ alias exercism="~/opt/exercism/exercism"
 
 # Deactivate screenkey
 alias skil="pkill -f screenkey"
+
+ccssh () {
+    ssh siliz4@$1.computecanada.ca
+}
+
+ccfs () {
+    sshfs siliz4@$1.computecanada.ca:/home/siliz4/ /mnt/computecanada -o follow_symlinks
+}
 
 samefile () {
     cmp --silent "$1" "$2" || echo "files are different"

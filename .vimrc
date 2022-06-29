@@ -1,3 +1,5 @@
+scriptencoding utf-8
+
 call plug#begin()
 
 " Utility
@@ -14,22 +16,23 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'godlygeek/tabular'
 Plug 'jeetsukumaran/vim-indentwise'
+Plug 'SirVer/ultisnips'
 
 " LSP
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
+Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
-Plug 'SirVer/ultisnips'
-Plug 'thomasfaingnaert/vim-lsp-snippets'
-Plug 'thomasfaingnaert/vim-lsp-ultisnips'
+Plug 'prabirshrestha/asyncomplete-file.vim'
+Plug 'prabirshrestha/asyncomplete-ultisnips.vim'
 
 " Language specific packages
 Plug 'eigenfoo/stan-vim', { 'for': 'stan' }
 Plug 'elixir-editors/vim-elixir'
 Plug 'hdima/python-syntax', { 'for': 'python' }
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 'markdown' }
-Plug 'lervag/vimtex', { 'for': 'tex' }
+Plug 'lervag/vimtex'
 Plug 'octol/vim-cpp-enhanced-highlight', { 'for': 'cpp' }
 Plug 'plasticboy/vim-markdown', { 'for': 'md' }
 Plug 'tpope/vim-liquid'
@@ -57,7 +60,8 @@ set wrap
 
 set laststatus=2 " Always display the statusline in all windows
 set showtabline=2 " Always display the tabline, even if there is only one tab
-
+let &t_SI = "\e[6 q"
+let &t_EI = "\e[2 q"
 
 syntax on
 filetype plugin on
@@ -93,18 +97,14 @@ autocmd BufReadPost * normal `"
 noremap <LEADER>d :NERDTreeToggle<CR>
 noremap <LEADER>f :Files<CR>
 
-let g:NERDTreeIgnore = ['^build$', '.*\.bin$', '^__pycache__$', '.*\.egg-info', ".*\.pdf$", ".*\.aux$"]
+let g:NERDTreeIgnore = ['^build$', '.*\.pdf$', '.*\.bin$', '^__pycache__$', '.*\.egg-info$', ".*\.pdf$", ".*\.aux$", ".*\.bbl$", ".*\.blg$", ".*\.fdb_latexmk$", "*.\.fls$", ".*\.lof$", ".*\.lot$", ".*\.out$", ".*\.toc$", ".*\.xdv$", ".*\.fls$", ".*\.synctex.gz$"]
 let g:rooter_targets = "*.cpp,*.h,*.hpp,CMakeLists.txt"
 let g:rooter_patterns = ['.git', 'build', 'setup.py']
-
-let g:UltiSnipsExpandTrigger = "<F10>"
-let g:UltiSnipsJumpForwardTrigger = "<LEADER><ENTER>"
-let g:UltiSnipsJumpBackwardTrigger = "<F11>"
-
-let g:vimtex_quickfix_open_on_warning = 0 " vimtex no quickfix window
 
 source ~/.vim/additionnal_functions.vim
 source ~/.vim/plugconfs/asyncomplete.vim
 source ~/.vim/plugconfs/gitgutter.vim
 source ~/.vim/plugconfs/incsearch.vim
+source ~/.vim/plugconfs/ultisnips.vim
 source ~/.vim/plugconfs/vim-lsp.vim
+source ~/.vim/plugconfs/vimtex.vim
