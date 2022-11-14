@@ -11,7 +11,7 @@ fi
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH="$HOME/.gem/ruby/2.7.0/bin:$PATH"
+export PATH="$HOME/.gem/ruby/3.0.0/bin:$PATH"
 export PATH="$PATH:$HOME/.local/bin/:$HOME/opt/bin"
 export LS_COLORS=$LS_COLORS:'di=1;35:*.tex=0;31:*.py=0;33';
 
@@ -81,19 +81,23 @@ alias exercism="~/opt/exercism/exercism"
 # Deactivate screenkey
 alias skil="pkill -f screenkey"
 
-ccssh () {
+function synctime() {
+    sudo date -s "$(curl -Is --max-redirs 0 google.com 2>&1 | grep Date: | cut -d' ' -f2-7)"
+}
+
+function ccssh () {
     ssh siliz4@$1.computecanada.ca
 }
 
-ccfs () {
+function ccfs () {
     sshfs siliz4@$1.computecanada.ca:/home/siliz4/ /mnt/computecanada -o follow_symlinks
 }
 
-samefile () {
+function samefile () {
     cmp --silent "$1" "$2" || echo "files are different"
 }
 
-texbib () {
+function texbib () {
     xelatex "$1.tex" >> /dev/null
     bibtex "$1.aux" >> /dev/null
     xelatex "$1.tex" >> /dev/null
@@ -101,18 +105,18 @@ texbib () {
 }
 
 # Make directory and enter it
-mcdir () {
+function mcdir () {
     mkdir -p -- "$1" &&
     cd -P -- "$1"
 }
 
 # Change directory and list content
-cl () {
+function cl () {
     cd "$1" && ls
 }
 
 # Activate python environnement
-pyenv () {
+function pyenv () {
     source ~/Documents/PyEnvs/$1/bin/activate
 }
 
