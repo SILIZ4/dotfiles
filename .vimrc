@@ -7,14 +7,11 @@ Plug 'preservim/nerdtree' |
         \ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'preservim/nerdcommenter'
 Plug 'tpope/vim-surround'
-Plug 'airblade/vim-gitgutter'
+Plug 'mhinz/vim-signify'
 Plug 'junegunn/fzf.vim'
 Plug 'itchyny/lightline.vim'
-Plug 'airblade/vim-rooter'
 Plug 'haya14busa/incsearch.vim'
-Plug 'nathanaelkane/vim-indent-guides'
 Plug 'michaeljsmith/vim-indent-object'
-Plug 'godlygeek/tabular'
 Plug 'jeetsukumaran/vim-indentwise'
 Plug 'SirVer/ultisnips'
 
@@ -25,7 +22,6 @@ Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'prabirshrestha/asyncomplete-file.vim'
-Plug 'prabirshrestha/asyncomplete-ultisnips.vim'
 
 " Language specific packages
 Plug 'eigenfoo/stan-vim', { 'for': 'stan' }
@@ -36,7 +32,6 @@ Plug 'lervag/vimtex'
 Plug 'octol/vim-cpp-enhanced-highlight', { 'for': 'cpp' }
 Plug 'plasticboy/vim-markdown', { 'for': 'md' }
 Plug 'tpope/vim-liquid'
-
 
 call plug#end()
 
@@ -56,54 +51,60 @@ set signcolumn=yes
 set smartindent
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 set timeoutlen=500
+set updatetime=200
 set wrap
 
 set laststatus=2 " Always display the statusline in all windows
 set showtabline=2 " Always display the tabline, even if there is only one tab
-let &t_SI = "\e[6 q"
+
+let &t_SI = "\e[6 q" " Slim cursor in insert mode
 let &t_EI = "\e[2 q"
 
 syntax on
 filetype plugin on
 filetype indent on
 
+
 " Color scheme
+"
 set background=light
 colorscheme solarized
+hi clear SignColumn
 " set transparent background
 "hi Normal guibg=NONE ctermbg=NONE
 "hi CursorLine guibg=NONE ctermbg=NONE cterm=bold
+"hi clear LineNr
 
 
+" Custom commands
+"
 nnoremap <SPACE> <Nop>
 let mapleader=" "
 command Q q
 command W w
 
-" Dont lose selection when indenting block
-vnoremap > >gv
+cmap w!! w !sudo tee > /dev/null % " Write file as sudo when forgotten
+
+vnoremap > >gv " Dont lose selection when indenting block
 vnoremap < <gv
-" Allow saving of files as sudo when forgotten
-cmap w!! w !sudo tee > /dev/null %
 
-" Automatic reloading of .vimrc
-autocmd! bufwritepost .vimrc source %
-" Remove trailing white space on save
-autocmd BufWritePre * %s/\s\+$//e
-" Return cursor to previous location on load
-autocmd BufReadPost * normal `"
+autocmd! bufwritepost .vimrc source % " Automatic reloading of .vimrc
+autocmd BufWritePre * %s/\s\+$//e " Remove trailing white space on save
+autocmd BufReadPost * normal `" " Return cursor to previous location on load
 
 
-noremap <LEADER>d :NERDTreeToggle<CR>
-noremap <LEADER>f :Files<CR>
+" Plugins config
+"
+noremap <LEADER>d :NERDTreeToggle<CR> " Nerdtree
+noremap <LEADER>f :Files<CR> " fzf
 
-let g:NERDTreeIgnore = ['^build$', '.*\.pdf$', '.*\.bin$', '^__pycache__$', '.*\.egg-info$', ".*\.pdf$", ".*\.aux$", ".*\.bbl$", ".*\.blg$", ".*\.fdb_latexmk$", "*.\.fls$", ".*\.lof$", ".*\.lot$", ".*\.out$", ".*\.toc$", ".*\.xdv$", ".*\.fls$", ".*\.synctex.gz$"]
-let g:rooter_targets = "*.cpp,*.h,*.hpp,CMakeLists.txt"
-let g:rooter_patterns = ['.git', 'build', 'setup.py']
+let g:NERDTreeIgnore = ['^build$', '.*\.pdf$', '.*\.bin$', '^__pycache__$',
+           \'.*\.egg-info$', ".*\.pdf$", ".*\.aux$", ".*\.bbl$", ".*\.blg$",
+           \".*\.fdb_latexmk$", "*.\.fls$", ".*\.lof$", ".*\.lot$", ".*\.out$",
+           \".*\.toc$", ".*\.xdv$", ".*\.fls$", ".*\.synctex.gz$"]
 
 source ~/.vim/additionnal_functions.vim
 source ~/.vim/plugconfs/asyncomplete.vim
-source ~/.vim/plugconfs/gitgutter.vim
 source ~/.vim/plugconfs/incsearch.vim
 source ~/.vim/plugconfs/ultisnips.vim
 source ~/.vim/plugconfs/vim-lsp.vim

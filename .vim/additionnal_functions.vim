@@ -1,6 +1,3 @@
-" Remove trailing white spaces with <F5>
-nnoremap <silent> <F4> :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
-
 " Display output of shell in split window
 function! s:ExecuteInShell(command)
   let command = join(map(split(a:command), 'expand(v:val)'))
