@@ -5,37 +5,42 @@
  *******************************************************************************/
 
 * {
-    foreground:                  rgba ( 88, 105, 123, 100 % );
-    normal-foreground:           @foreground;
-    alternate-normal-background: @normal-background;
-    red:                         rgba ( 220, 50, 47, 100 % );
-    selected-urgent-foreground:  rgba ( 220, 50, 47, 100 % );
+    red:                         rgba ( 150,  45,  76, 80 % );
+    yellow:                      rgba ( 242, 196, 58, 80 % );
     blue:                        rgba ( 38, 139, 210, 100 % );
-    urgent-foreground:           rgba ( 220, 50, 47, 100 % );
-    alternate-urgent-background: rgba ( 245, 245, 245, 100 % );
-    active-foreground:           rgba ( 194, 202, 208, 100 % );
-    lightbg:                     rgba ( 238, 232, 213, 100 % );
-    alternate-active-background: rgba ( 245, 245, 245, 100 % );
-    background:                  rgba (   9,   6,  17, 100 % );
-    bordercolor:                 rgba ( 195, 193, 61, 100 % );
-    alternate-normal-foreground: @foreground;
-    normal-background:           rgba ( 255, 255, 255, 0 % );
     lightfg:                     rgba ( 88, 104, 117, 100 % );
-    selected-normal-background:  rgba ( 150,  45,  76, 80 % );
-    selected-normal-foreground:  rgba ( 180, 144,  82, 100 % );
-    selected-active-foreground:  rgba ( 180, 144,  82, 100 % );
-    border-color:                rgba ( 150,  45,  76, 100 % );
-    spacing:                     2;
-    separatorcolor:              none;
+    lightbg:                     rgba ( 238, 232, 213, 100 % );
+    contrast-color:              @yellow;
+
+    foreground:                  rgba ( 88, 105, 123, 100 % );
+    background:                  rgba (   9,   6,  17, 100 % );
+    active-background:           rgba ( 255, 255, 255, 100 % );
+    active-foreground:           rgba ( 194, 202, 208, 100 % );
     urgent-background:           rgba ( 255, 255, 255, 100 % );
-    selected-urgent-background:  rgba ( 82, 148, 226, 100 % );
+    urgent-foreground:           rgba ( 220, 50, 47, 100 % );
+    alternate-active-background: rgba ( 245, 245, 245, 100 % );
+    alternate-active-foreground: @active-foreground;
+    alternate-normal-background: @normal-background;
+    alternate-normal-foreground: @foreground;
+    alternate-urgent-background: rgba ( 245, 245, 245, 100 % );
     alternate-urgent-foreground: @urgent-foreground;
     background-color:            rgba ( 0, 0, 0, 0 % );
-    alternate-active-foreground: @active-foreground;
-    active-background:           rgba ( 255, 255, 255, 100 % );
+    /*border-color:                rgba ( 150,  45,  76, 100 % );*/
+    border-color:                @yellow;
+    bordercolor:                 rgba ( 195, 193, 61, 100 % );
+    normal-background:           rgba ( 255, 255, 255, 0 % );
+    normal-foreground:           @foreground;
     selected-active-background:  rgba ( 82, 148, 226, 100 % );
+    selected-active-foreground:  rgba ( 180, 144,  82, 100 % );
+    selected-normal-background:  @contrast-color;
+    selected-normal-foreground:  rgba ( 34, 28, 28, 100 % );
+    selected-urgent-background:  rgba ( 82, 148, 226, 100 % );
+    selected-urgent-foreground:  rgba ( 220, 50, 47, 100 % );
+    separatorcolor:              none;
 
-	font: "Inconsolata Regular 13";
+    spacing: 2;
+
+    font: "Inconsolata Regular 13";
 }
 #window {
     background-color: @background;
