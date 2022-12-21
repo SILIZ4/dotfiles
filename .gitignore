@@ -12,7 +12,7 @@
 !.fehbg
 !.gitconfig
 !.gitignore
-!.p10k.zsh
+!.tmux.conf
 !.vim/
 !.vim/additionnal_functions.vim
 !.vim/ftplugin/
@@ -28,5 +28,3 @@
 
 !misc/gentoo_system/
 !misc/gentoo_system/*
-
-!install-vim-packages.sh

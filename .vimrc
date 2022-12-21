@@ -15,6 +15,7 @@ Plug 'haya14busa/incsearch.vim'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'jeetsukumaran/vim-indentwise'
 Plug 'SirVer/ultisnips'
+Plug 'christoomey/vim-tmux-navigator'
 
 " LSP
 Plug 'prabirshrestha/vim-lsp'
@@ -96,8 +97,8 @@ autocmd BufReadPost * normal `" " Return cursor to previous location on load
 
 " Plugins config
 "
-noremap <LEADER>d :NERDTreeToggle<CR> " Nerdtree
-noremap <LEADER>f :Files<CR> " fzf
+noremap <LEADER>d :NERDTreeToggle<CR>
+noremap <LEADER>f :Files<CR>
 
 let g:NERDTreeIgnore = ['^build$', '.*\.pdf$', '.*\.bin$', '^__pycache__$',
            \'.*\.egg-info$', ".*\.pdf$", ".*\.aux$", ".*\.bbl$", ".*\.blg$",
