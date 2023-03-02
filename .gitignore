@@ -2,6 +2,8 @@
 
 !.config/
 !.config/i3/config
+!.config/nvim
+!.config/nvim/*
 !.config/polybar/
 !.config/powerline/
 !.config/rofi/
