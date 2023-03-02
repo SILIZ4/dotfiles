@@ -9,6 +9,9 @@ vim.opt.nu = true
 vim.opt.relativenumber = true
 vim.opt.signcolumn = "yes"
 vim.opt.wrap = false
+vim.opt.termguicolors = true
+
+vim.opt.updatetime=300
 
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4

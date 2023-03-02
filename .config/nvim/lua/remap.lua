@@ -11,6 +11,9 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
+vim.keymap.set("n", "*", "*zz")
+vim.keymap.set("n", "#", "#zz")
+vim.keymap.set("n", "g*", "g*zz")
 
 -- Do not lose selection after indenting
 vim.keymap.set("v", ">", ">gv")

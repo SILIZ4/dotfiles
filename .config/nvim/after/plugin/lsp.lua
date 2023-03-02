@@ -9,7 +9,7 @@ lsp.ensure_installed({
 	"rust_analyzer",
 	"texlab",
 	"pyright",
-	"clang",
+	"clangd",
 })
 
 -- (Optional) Configure lua language server for neovim
