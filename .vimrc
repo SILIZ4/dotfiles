@@ -87,6 +87,10 @@ command W w
 
 cmap w!! w !sudo tee > /dev/null % " Write file as sudo when forgotten
 
+nnoremap <C-u> <C-u>zz
+nnoremap <C-d> <C-d>zz
+nnoremap <C-f> <C-f>zz
+nnoremap <C-b> <C-b>zz
 vnoremap > >gv " Dont lose selection when indenting block
 vnoremap < <gv
 
