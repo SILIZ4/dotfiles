@@ -1,36 +1,42 @@
-source ~/.zplug/init.zsh
+# Temporary workaround --- urxvt startup at middle of screen
+if [[ `ps ho command $(ps ho ppid $$)` == 'urxvt' ]]; then
+  clear
+fi
 
-# Must be set early to avoid interference with autosuggestions
-zplug "softmoth/zsh-vim-mode"
-bindkey -v
+source .antigen/antigen.zsh
 
-zplug "sindresorhus/pure"
-zplug "zsh-users/zsh-syntax-highlighting"
-zplug "zsh-users/zsh-history-substring-search"
-zplug "zsh-users/zsh-autosuggestions"
-zplug "Aloxaf/fzf-tab"
+antigen bundle "zsh-users/zsh-autosuggestions"
+antigen bundle "zsh-users/zsh-syntax-highlighting"
+antigen bundle "softmoth/zsh-vim-mode"@main
+
+antigen bundle "sindresorhus/pure"@main
+antigen bundle "zsh-users/zsh-history-substring-search"
+antigen bundle "Aloxaf/fzf-tab"
+antigen bundle "marlonrichert/zsh-autocomplete"@main
 
 # Pure prompt
-fpath+=($ZPLUG_REPOS/sindresorhus/pure)
-
 zstyle :prompt:pure:prompt:success color "#5f8700"
 zstyle :prompt:pure:prompt:error color "#af0000"
 
 # zsh-autosuggestions
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#d75f87,bold"
-ZSH_AUTOSUGGEST_STRATEGY=(completion history)
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
-bindkey "^ " forward-word
-bindkey "^j" history-beginning-search-forward
-bindkey "^k" history-beginning-search-backward
+# zsh-autocomplete
+zstyle ':autocomplete:*' insert-unambiguous yes # Insert common substring if it exists
+zstyle ':autocomplete:*' widget-style menu-complete # Cycle suggestions with tab
 
 # zsh-history-substring-search
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 
+antigen apply
 
-KEYTIMEOUT=5
 
+# vim bindings
+bindkey -v
+
+KEYTIMEOUT=1
 
 export HISTFILE=~/.zsh_history
 export HISTSIZE=10000
@@ -45,8 +51,8 @@ setopt hist_ignore_space         # Do not record an event starting with a space.
 setopt hist_save_no_dups         # Do not write a duplicate event to the history file.
 setopt share_history             # Share history between all sessions.
 
-
-export LS_COLORS=$LS_COLORS:'di=1;35:*.tex=0;31:*.py=0;33';
+export LS_COLORS=$LS_COLORS:'di=1;35:*.tex=0;33:*.py=0;33:*.cpp=0;33:*.h=0;33:*.hpp=0;33:*.rs=0;33;'
+path+=("$HOME/.local/bin/")
 
 # Custom aliases
 alias ls="ls --color=tty"
@@ -111,5 +117,3 @@ function cl () {
 function pyenv () {
     source ~/Documents/PyEnvs/$1/bin/activate
 }
-
-zplug load # --verbose
