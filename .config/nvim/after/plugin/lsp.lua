@@ -22,6 +22,11 @@ lsp.on_attach(function(client, bufnr)
 	vim.keymap.set("n", "<leader>r", function() vim.lsp.buf.rename() end, opts)
 	vim.keymap.set("n", "<leader>i", function() vim.lsp.buf.signature_help() end, opts)
 end)
+vim.keymap.set("n", "<leader>e", function() vim.diagnostic.open_float() end)
 
+-- Display virtual text with warnings and errors
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+        vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = true, }
+    )
 
 lsp.setup()

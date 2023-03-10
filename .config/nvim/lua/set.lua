@@ -8,7 +8,7 @@ vim.opt.mouse = "a"
 vim.opt.nu = true
 vim.opt.relativenumber = true
 vim.opt.signcolumn = "yes"
-vim.opt.wrap = false
+vim.opt.wrap = true
 vim.opt.termguicolors = true
 
 vim.opt.updatetime=300
