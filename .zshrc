@@ -3,16 +3,15 @@ if [[ `ps ho command $(ps ho ppid $$)` == 'urxvt' ]]; then
   clear
 fi
 
-source .antigen/antigen.zsh
+source $HOME/.antigen/antigen.zsh
 
+
+antigen bundle "zsh-users/zsh-history-substring-search"
 antigen bundle "zsh-users/zsh-autosuggestions"
 antigen bundle "zsh-users/zsh-syntax-highlighting"
 antigen bundle "softmoth/zsh-vim-mode"@main
 
 antigen bundle "sindresorhus/pure"@main
-antigen bundle "zsh-users/zsh-history-substring-search"
-antigen bundle "Aloxaf/fzf-tab"
-antigen bundle "marlonrichert/zsh-autocomplete"@main
 
 # Pure prompt
 zstyle :prompt:pure:prompt:success color "#5f8700"
@@ -35,6 +34,8 @@ antigen apply
 
 # vim bindings
 bindkey -v
+bindkey -s "^f" 'tmux-sessionizer^M'
+
 
 KEYTIMEOUT=1
 
@@ -52,7 +53,8 @@ setopt hist_save_no_dups         # Do not write a duplicate event to the history
 setopt share_history             # Share history between all sessions.
 
 export LS_COLORS=$LS_COLORS:'di=1;35:*.tex=0;33:*.py=0;33:*.cpp=0;33:*.h=0;33:*.hpp=0;33:*.rs=0;33;'
-path+=("$HOME/.local/bin/")
+path+=("$HOME/.local" "$HOME/.local/scripts/" "$HOME/.local/bin/")
+export PATH
 
 # Custom aliases
 alias ls="ls --color=tty"
@@ -117,3 +119,22 @@ function cl () {
 function pyenv () {
     source ~/Documents/PyEnvs/$1/bin/activate
 }
+
+# The following lines were added by compinstall
+
+zstyle ':completion:*' completer _extensions _complete _approximate
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*:*:*:*:corrections' format '%F{yellow}!- %d (errors: %e) -!%f'
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*:*:-command-:*:*' group-order alias builtins functions commands
+zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} r:|[._-]=* r:|=*'
+zstyle :compinstall filename '/home/simon/.zshrc'
+zstyle ':completion:*' menu select
+
+setopt ALWAYS_TO_END
+setopt AUTO_PARAM_SLASH
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall

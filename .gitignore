@@ -2,12 +2,25 @@
 
 !.config/
 !.config/i3/config
-!.config/nvim
-!.config/nvim/*
 !.config/polybar/
 !.config/powerline/
 !.config/rofi/
 !.config/rofi/*
+
+!.config/nvim
+!.config/nvim/*
+!.config/nvim/after
+!.config/nvim/after/*
+!.config/nvim/after/plugin
+!.config/nvim/after/plugin/*
+!.config/nvim/after/ftplugin
+!.config/nvim/after/ftplugin/*
+!.config/nvim/lua
+!.config/nvim/lua/*
+
+!.local
+!.local/scripts
+!.local/scripts/*
 
 !.bashrc
 !.dwmstatus
