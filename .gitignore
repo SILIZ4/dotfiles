@@ -1,11 +1,14 @@
 *
 
 !.config/
+
 !.config/i3/config
 !.config/polybar/
 !.config/powerline/
 !.config/rofi/
 !.config/rofi/*
+!.config/vifm
+!.config/vifm/vifmrc
 
 !.config/nvim
 !.config/nvim/*
