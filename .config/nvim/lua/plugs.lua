@@ -13,6 +13,7 @@ Plug 'nvim-telescope/telescope.nvim'
 vim.cmd("Plug 'catppuccin/nvim', { 'as': 'catppuccin' }")
 
 vim.cmd("Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}")
+Plug 'nvim-treesitter/nvim-treesitter-context'
 
 -- Language-specific plugins
 Plug 'lervag/vimtex'
