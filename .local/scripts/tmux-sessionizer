@@ -4,7 +4,7 @@
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(fd --type d -E "bin" -E "build" -E "debug" -E "tmp" -E ".git" -E "dotfiles" -E "PyEnvs" | fzf)
+    selected=$(fd --type d -E "bin" -E "build" -E "debug" -E "tmp" -E ".git" -E "dotfiles" -E "PyEnvs" -E "Zoom" --search-path "$HOME/Documents" --search-path "$HOME/misc" --search-path "$HOME/dev" . | fzf)
 fi
 
 if [[ -z $selected ]]; then
