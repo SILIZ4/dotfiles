@@ -1,5 +1,3 @@
-vim.keymap.set("n", "<leader>d", vim.cmd.Ex)
-
 vim.keymap.set("n", "Q", "<nop>")
 
 -- Move block in visual mode

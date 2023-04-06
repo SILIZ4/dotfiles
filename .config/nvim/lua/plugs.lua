@@ -14,6 +14,8 @@ vim.cmd("Plug 'catppuccin/nvim', { 'as': 'catppuccin' }")
 
 vim.cmd("Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}")
 Plug 'nvim-treesitter/nvim-treesitter-context'
+Plug 'sakhnik/nvim-gdb'
+Plug 'sbdchd/neoformat'
 
 -- Language-specific plugins
 Plug 'lervag/vimtex'
