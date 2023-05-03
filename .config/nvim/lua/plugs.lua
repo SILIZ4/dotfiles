@@ -3,7 +3,7 @@ vim.call('plug#begin')
 
 Plug 'preservim/nerdcommenter'
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-surround'
+Plug 'kylechui/nvim-surround'
 Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-vinegar'
 
