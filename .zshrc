@@ -31,11 +31,7 @@ bindkey -M vicmd 'j' history-substring-search-down
 
 antigen apply
 
-
-# vim bindings
-bindkey -v
 bindkey -s "^f" 'tmux-sessionizer^M'
-
 
 KEYTIMEOUT=1
 

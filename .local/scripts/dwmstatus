@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 battery="BAT0";
 
 has_battery() {
@@ -49,11 +51,14 @@ get_datetime() {
     date +" %a %d %b %Y | %I:%M %p"
 }
 
-get_status() {
-    echo " $(get_battery_info)$(get_datetime)";
+get_distro() {
+    awk -F= '$1 == "NAME" {print $2}' /etc/os-release
 }
 
-echo "$(get_status)"
+get_status() {
+    echo " running $(get_distro) |$(get_battery_info)$(get_datetime)";
+}
+
 while true
 do
     xsetroot -name "$(get_status)";

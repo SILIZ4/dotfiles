@@ -1,2 +1,0 @@
-#!/bin/sh
-feh --no-fehbg --bg-scale '/home/simon/Pictures/wallpapers/hexagons-wallpaper.jpg' '/home/simon/Pictures/wallpapers/popsicle_bg.png'

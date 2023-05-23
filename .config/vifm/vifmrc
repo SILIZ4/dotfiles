@@ -178,8 +178,8 @@ command! reload :write | restart full
 " program.  There is also %FOREGROUND, which is useful for entering passwords.
 
 " Pdf
-filextype {*.pdf},<application/pdf> zathura %c %i &, apvlv %c, xpdf %c
-fileviewer {*.pdf},<application/pdf> pdftotext -nopgbrk %c -
+" filextype {*.pdf},<application/pdf> zathura %c %i &, apvlv %c, xpdf %c
+" fileviewer {*.pdf},<application/pdf> pdftotext -nopgbrk %c -
 
 " PostScript
 filextype {*.ps,*.eps,*.ps.gz},<application/postscript>
@@ -243,15 +243,15 @@ filetype {*.[1-8]},<text/troff> man ./%c
 fileviewer {*.[1-8]},<text/troff> man ./%c | col -b
 
 " Images
-filextype {*.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm},<image/*>
-        \ {View in sxiv}
-        \ sxiv %f,
-        \ {View in gpicview}
-        \ gpicview %c,
-        \ {View in shotwell}
-        \ shotwell,
-fileviewer {*.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm},<image/*>
-         \ identify %f
+"filextype {*.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm},<image/*>
+"        \ {View in sxiv}
+"        \ sxiv %f,
+"        \ {View in gpicview}
+"        \ gpicview %c,
+"        \ {View in shotwell}
+"        \ shotwell,
+"fileviewer {*.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm},<image/*>
+"         \ identify %f
 
 " OpenRaster
 filextype *.ora
@@ -388,7 +388,7 @@ filextype */
 " uncommenting one of lines below will result in ignoring 'vi[x]cmd' option
 " for unknown file types.
 " For *nix:
-" filetype * xdg-open
+filetype * xdg-open
 " For OS X:
 " filetype * open
 " For Windows:
@@ -542,9 +542,39 @@ nnoremap o <CR>
 nnoremap - gh
 set relativenumber
 
+" Fuzzy finder from cwd
 command! FZFfind : set noquickview
-                \| let $FZF_PICK = term('fd -E ".git" | fzf --height 10 2>/dev/tty')
+                \| let $FZF_PICK = term('fd -E "build" -E "__pycache__"| fzf --height 10 2>/dev/tty')
                 \| if $FZF_PICK != ''
                 \|     execute 'goto' fnameescape($FZF_PICK)
                 \| endif
 nnoremap <C-f> :FZFfind<CR>
+
+" Go to bookmark
+nnoremap b :bmgo<space>
+nnoremap gh :bmgo<space>home<CR>
+nnoremap gd :bmgo<space>down<CR>
+
+" Set preview window by default
+set vifminfo+=tui
+
+" kitty image preview
+fileviewer *.bmp,*.jpg,*.jpeg,*.png
+    \ kitten icat --silent --transfer-mode=file --place=%pwx%ph@%pxx%py %c >/dev/tty </dev/tty %N
+    \ %pc
+    \ kitten icat --clear --silent >/dev/tty </dev/tty %N
+
+
+" kitty SVG preview
+fileviewer *.svg
+    \ rsvg-convert %c -o /tmp/thumbnail.png && kitten icat --silent --transfer-mode=file --place=%pwx%ph@%pxx%py /tmp/thumbnail.png >/dev/tty </dev/tty %N
+    \ %pc
+    \ kitten icat --clear --silent >/dev/tty </dev/tty %N
+
+
+" kitty PDF preview
+filetype *.pdf open -a Skim %f &
+fileviewer *.pdf
+    \ mkdir -p /tmp/preview && pdftoppm -f 1 -l 1 -scale-to 1024 -png %c /tmp/preview/output && mv /tmp/preview/`ls /tmp/preview | head -n 1` /tmp/thumbnail.png && kitten icat --silent --transfer-mode=file --place=%pwx%ph@%pxx%py /tmp/thumbnail.png >/dev/tty </dev/tty %N
+    \ %pc
+    \ kitten icat --clear --silent >/dev/tty </dev/tty %N

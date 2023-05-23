@@ -26,8 +26,6 @@
 !.local/scripts/*
 
 !.bashrc
-!.dwmstatus
-!.fehbg
 !.gitconfig
 !.gitignore
 !.tmux.conf

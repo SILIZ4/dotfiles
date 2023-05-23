@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+if type "brave" > /dev/null; then
+    brave
+elif type "brave-bin" > /dev/null; then
+    brave-bin
+elif type "qutebrowser" > /dev/null; then
+    qutebrowser
+else
+    echo "Didn't find browser to launch."
+fi
