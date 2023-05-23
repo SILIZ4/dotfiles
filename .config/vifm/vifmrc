@@ -365,6 +365,13 @@ filextype */
         \ {View in thunar}
         \ Thunar %f &,
 
+
+" Additional file types
+
+" Run rom in emulator
+filetype {*.smc,*.sfc} snes9x-gtk %c
+
+
 " Syntax highlighting in preview
 "
 " Explicitly set highlight type for some extensions
