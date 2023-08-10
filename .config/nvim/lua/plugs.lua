@@ -6,6 +6,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'kylechui/nvim-surround'
 Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-vinegar'
+Plug 'famiu/feline.nvim'
 
 Plug 'ThePrimeagen/harpoon'
 Plug 'nvim-lua/plenary.nvim'
