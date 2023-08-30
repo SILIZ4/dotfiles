@@ -9,7 +9,7 @@ source $HOME/.antigen/antigen.zsh
 antigen bundle "zsh-users/zsh-history-substring-search"
 antigen bundle "zsh-users/zsh-autosuggestions"
 antigen bundle "zsh-users/zsh-syntax-highlighting"
-antigen bundle "softmoth/zsh-vim-mode"@main
+antigen bundle "jeffreytse/zsh-vi-mode"
 
 antigen bundle "sindresorhus/pure"@main
 
@@ -98,7 +98,7 @@ function ccfs () {
 }
 
 function samefile () {
-    cmp --silent "$1" "$2" || echo "files are different"
+    cmp --silent "$1" "$2" && echo "identical files" || echo "different files"
 }
 
 function mcdir () {

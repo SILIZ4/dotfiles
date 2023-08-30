@@ -18,6 +18,10 @@ Plug 'nvim-treesitter/nvim-treesitter-context'
 Plug 'sakhnik/nvim-gdb'
 Plug 'sbdchd/neoformat'
 
+-- Quarto
+Plug 'quarto-dev/quarto-nvim'
+Plug 'jmbuhr/otter.nvim'
+
 -- Language-specific plugins
 Plug 'lervag/vimtex'
 Plug 'eigenfoo/stan-vim'
