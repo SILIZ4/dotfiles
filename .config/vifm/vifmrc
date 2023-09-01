@@ -562,6 +562,10 @@ nnoremap b :bmgo<space>
 nnoremap gh :bmgo<space>home<CR>
 nnoremap gd :bmgo<space>down<CR>
 
+" Yank file directory, file path
+nnoremap yd :!echo -n %d | xclip -selection clipboard %i<cr>:echo expand('%"d') "is yanked to clipboard"<cr>
+nnoremap yf :!echo -n %c:p | xclip -selection clipboard %i<cr>:echo expand('%"c:p') "is yanked to clipboard"<cr>
+
 " Set preview window by default
 set vifminfo+=tui
 
