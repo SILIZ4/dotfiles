@@ -3,14 +3,12 @@ if [[ `ps ho command $(ps ho ppid $$)` == 'urxvt' ]]; then
   clear
 fi
 
+
 source $HOME/.antigen/antigen.zsh
 
-
-antigen bundle "zsh-users/zsh-history-substring-search"
 antigen bundle "zsh-users/zsh-autosuggestions"
 antigen bundle "zsh-users/zsh-syntax-highlighting"
-antigen bundle "jeffreytse/zsh-vi-mode"
-
+antigen bundle "zsh-users/zsh-history-substring-search"
 antigen bundle "sindresorhus/pure"@main
 
 # Pure prompt
@@ -31,6 +29,8 @@ bindkey -M vicmd 'j' history-substring-search-down
 
 antigen apply
 
+
+bindkey -v # vim mode
 bindkey -s "^f" 'tmux-sessionizer^M'
 
 KEYTIMEOUT=1
@@ -52,6 +52,7 @@ export LS_COLORS=$LS_COLORS:'di=1;35:*.tex=0;33:*.py=0;33:*.cpp=0;33:*.h=0;33:*.
 path+=("$HOME/.local" "$HOME/.local/scripts/" "$HOME/.local/bin/")
 export PATH
 
+vim_swap_dir="$HOME/.cache/vim/swap"
 # Custom aliases
 alias ls="ls --color=tty"
 alias l="ls"
@@ -64,25 +65,14 @@ alias brc="vim ~/.bashrc"
 alias vrc="vim ~/.vimrc"
 alias zrc="vim ~/.zshrc"
 alias uzrc="source ~/.zshrc"
-alias lswap="ls ~/.cache/vim/swap"
-alias rmswap="rm ~/.cache/vim/swap/*"
-alias dswp="rm ~/.cache/vim/swap/*"
-alias :q="exit"
-alias q="exit"
+alias lswap="ls $vim_swap_dir"
+alias rmswap="rm $vim_swap_dir"
 alias dotfiles="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"
-alias vim="vim --servername vimd"
 
 # Programs
+alias vim="vim --servername vimd"
 alias jn="jupyter-notebook"
 alias rm-latex="rm *.out(N) *.bbl(N) *.aux(N) *.log(N) *.blg(N) *.sta(N) *.toc(N) *.nav(N) *.snm(N) *.run.xml(N) *.bcf(N) *.lof(N) *.lot(N) *.dvi(N) *.fls(N) *.fdb_latexmk(N) *.xdv(N) *.synctex.gz(N)"
-
-
-function edit() {
-    SESSION=$1
-    tmux new-session -d -s $SESSION
-    tmux split-window -v -l 0 -t $SESSION
-    tmux attach-session -t $SESSION
-}
 
 function clocksync() {
     sudo date -s "$(curl -Is --max-redirs 0 google.com 2>&1 | grep Date: | cut -d' ' -f2-7)"
@@ -99,16 +89,6 @@ function ccfs () {
 
 function samefile () {
     cmp --silent "$1" "$2" && echo "identical files" || echo "different files"
-}
-
-function mcdir () {
-    mkdir -p -- "$1" &&
-    cd -P -- "$1"
-}
-
-# Change directory and list content
-function cl () {
-    cd "$1" && ls
 }
 
 # Activate python environnement
