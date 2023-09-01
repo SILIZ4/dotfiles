@@ -32,6 +32,7 @@ lsp.on_attach(function(client, bufnr)
 	vim.keymap.set("n", "<leader>i", function() vim.lsp.buf.signature_help() end, opts)
 end)
 vim.keymap.set("n", "<leader>e", function() vim.diagnostic.open_float() end)
+vim.keymap.set("n", "<leader>vl", ":Mason<CR>")
 
 -- Display virtual text with warnings and errors
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(

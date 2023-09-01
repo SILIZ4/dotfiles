@@ -1,4 +1,6 @@
 vim.keymap.set("n", "Q", "<nop>")
+-- Open netrw
+vim.keymap.set("n", "-", ":Ex<CR>")
 
 -- Move block in visual mode
 vim.keymap.set("v", "<C-j>", ":m '>+1<CR>gv=gv")
