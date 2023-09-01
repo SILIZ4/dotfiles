@@ -128,6 +128,13 @@ local lazy_plugins = {
             'hrsh7th/cmp-nvim-lua',
         }
     },
+    {
+        "L3MON4D3/LuaSnip",
+        version = "2.*",
+        dependencies= {
+            'saadparwaiz1/cmp_luasnip'
+        }
+    }
 }
 
 vim.keymap.set("n", "<leader>vp", ":Lazy home<CR>")

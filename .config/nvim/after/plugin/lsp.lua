@@ -17,10 +17,10 @@ lsp.nvim_workspace()
 
 -- Don't preselect first item
 lsp.setup_nvim_cmp({
-  preselect = 'none',
-  completion = {
+    preselect = 'none',
+    completion = {
     completeopt = 'menu,menuone,noinsert,noselect'
-  },
+    },
 })
 
 lsp.on_attach(function(client, bufnr)
@@ -40,3 +40,22 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     )
 
 lsp.setup()
+
+
+local cmp = require('cmp')
+local cmp_action = require('lsp-zero').cmp_action()
+
+cmp.setup({
+    mapping = {
+        ['<CR>'] = cmp.mapping.confirm({select = true}),
+        ['<C-l>'] = cmp_action.luasnip_jump_forward(),
+        ['<C-h>'] = cmp_action.luasnip_jump_backward(),
+    },
+})
+
+-- Avoid bug where completion occurs after deletion of snippet
+local ls = require('luasnip')
+ls.config.set_config({
+	region_check_events = "CursorMoved",
+    delete_check_events = 'TextChanged',
+})
