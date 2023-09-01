@@ -1,14 +1,15 @@
 local lazy_plugins = {
     'preservim/nerdcommenter',
     {
-       'tpope/vim-fugitive',
-        config=function()
-            vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
-        end
+        'tpope/vim-fugitive',
+        lazy=true,
+        keys={
+            { "<leader>gs", function() vim.cmd.Git() end, mode = "n" },
+        }
     },
     {
         'kylechui/nvim-surround',
-        config=function()
+        init=function()
             require("nvim-surround").setup()
         end
     },
@@ -16,15 +17,15 @@ local lazy_plugins = {
     'famiu/feline.nvim',
     {
         'catppuccin/nvim',
-        config=function()
+        name="catpuccin",
+        init=function()
             require("catppuccin").setup({
-                show_end_of_buffer = true, -- shows the '~' characters after the end of buffers
+                show_end_of_buffer = true,
                 integrations = {
                     cmp = true,
                     harpoon = true,
                 },
             })
-            -- setup must be called before loading
             vim.cmd.colorscheme "catppuccin"
             vim.cmd("highlight LineNr guifg=gray63")
         end
@@ -32,25 +33,22 @@ local lazy_plugins = {
     {
         'ThePrimeagen/harpoon',
         dependencies='nvim-lua/plenary.nvim',
-        config=function()
-            local mark = require("harpoon.mark")
-            local ui = require("harpoon.ui")
-
-            vim.keymap.set("n", "<leader>a", mark.add_file)
-            vim.keymap.set("n", "<leader>j", ui.nav_next)
-            vim.keymap.set("n", "<leader>k", ui.nav_prev)
-            vim.keymap.set("n", "<leader>h", ui.toggle_quick_menu)
-        end
+        lazy=true,
+        keys={
+            { "<leader>a", function() require"harpoon.mark".add_file() end, mode = "n" },
+            { "<leader>j", function() require"harpoon.ui".nav_next() end, mode = "n" },
+            { "<leader>k", function() require"harpoon.ui".nav_prev() end, mode = "n" },
+            { "<leader>m", function() require"harpoon.ui".toggle_quick_menu() end, mode = "n" }
+        }
     },
     {
         'nvim-telescope/telescope.nvim',
-        config=function()
-            local builtin = require('telescope.builtin')
-
-            vim.keymap.set('n', '<leader>sf', builtin.find_files, {})
-            vim.keymap.set('n', '<leader>sg', builtin.git_files, {})
-            vim.keymap.set('n', '<leader>sp', builtin.live_grep, {})
-        end
+        lazy=true,
+        keys={
+            { "<leader>sf", function() require"telescope.builtin".find_files() end, mode = "n" },
+            { "<leader>sg", function() require"telescope.builtin".git_files() end, mode = "n" },
+            { "<leader>sp", function() require"telescope.builtin".live_grep() end, mode = "n" },
+        }
     },
     {
         'nvim-treesitter/nvim-treesitter',
@@ -58,7 +56,7 @@ local lazy_plugins = {
         dependencies={
             'nvim-treesitter/nvim-treesitter-context',
         },
-        config=function()
+        init=function()
             require'nvim-treesitter.configs'.setup {
               ensure_installed = { "c", "lua", "vim", "cpp", "rust", "python", "latex" },
               sync_install = false,
@@ -73,12 +71,13 @@ local lazy_plugins = {
     },
     {
         'sbdchd/neoformat',
-        config=function()
-            vim.keymap.set('n', '<leader>f', ":Neoformat<CR>", {noremap = true})
-        end
+        keys={
+            { "<leader>f", ":Neoformat<CR>", mode = "n", noremap=true },
+        }
     },
     {
         'quarto-dev/quarto-nvim',
+        ft='quarto',
         dependencies={
             'jmbuhr/otter.nvim',
             'hrsh7th/nvim-cmp',
@@ -88,15 +87,13 @@ local lazy_plugins = {
         config=function()
             local quarto = require('quarto')
             quarto.setup()
-
             vim.keymap.set('n', '<leader><CR>', quarto.quartoPreview, {silent = true, noremap = true})
-        end,
-        ft='quarto'
+        end
     },
     {
         'lervag/vimtex',
         ft='latex',
-        config=function()
+        init=function()
             vim.g.vimtex_motion_enabled = 0
             vim.g.vimtex_view_method = 'zathura'
             vim.g.tex_flavor = "latex"
@@ -128,7 +125,7 @@ local lazy_plugins = {
         dependencies={
             'hrsh7th/cmp-nvim-lsp',
             'hrsh7th/cmp-path',
-            'hrsh7th/cmp-nvim-lua'
+            'hrsh7th/cmp-nvim-lua',
         }
     },
 }
