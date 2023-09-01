@@ -20,6 +20,8 @@
 !.config/nvim/after/ftplugin/*
 !.config/nvim/lua
 !.config/nvim/lua/*
+!.config/nvim/ftdetect
+!.config/nvim/ftdetect/*
 
 !.local
 !.local/scripts
