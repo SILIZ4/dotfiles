@@ -10,7 +10,7 @@ vim.opt.relativenumber = true
 vim.opt.signcolumn = "yes"
 vim.opt.wrap = true
 vim.opt.termguicolors = true
-vim.opt.scrolloff=5
+vim.opt.scrolloff=3
 
 vim.opt.updatetime=300
 
