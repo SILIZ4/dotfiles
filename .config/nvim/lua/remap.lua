@@ -26,3 +26,5 @@ vim.keymap.set("x", "<leader>p", "\"_dP")
 
 -- Enable multi-line edit to apply with C-c
 vim.keymap.set("i", "<C-c>", "<Esc>")
+
+vim.keymap.set("n", "<leader>st", "<cmd>silent !tmux neww tmux-sessionizer<CR>")

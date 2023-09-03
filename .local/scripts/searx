@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-sudo -H -u searx -i python searx-src/searx/webapp.py
