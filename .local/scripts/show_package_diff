@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+tmpfile=$(mktemp /tmp/current_package_packages.txt.XXXXXX)
+pacman -Qqe | sort > "$tmpfile"
+
+echo -e "Removed packages:\n"
+comm -13 "$tmpfile" ~/misc/pacman-packages.txt
+
+echo -e "\nNew packages:\n"
+comm -23 "$tmpfile" ~/misc/pacman-packages.txt
+
+rm "$tmpfile"

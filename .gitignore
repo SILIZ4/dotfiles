@@ -44,5 +44,7 @@
 !.Xresources
 !.zshrc
 
+!misc/
 !misc/gentoo_system/
 !misc/gentoo_system/*
+!misc/pacman-packages.txt

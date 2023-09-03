@@ -14,7 +14,15 @@ local lazy_plugins = {
         end
     },
     'mhinz/vim-signify',
-    'famiu/feline.nvim',
+    {
+        'famiu/feline.nvim',
+        dependencies={
+            {
+                'lewis6991/gitsigns.nvim',
+                init=function() require('gitsigns').setup() end
+            },
+        }
+    },
     {
         'catppuccin/nvim',
         name="catpuccin",
@@ -47,7 +55,7 @@ local lazy_plugins = {
         keys={
             { "<leader>sf", function() require"telescope.builtin".find_files() end, mode = "n" },
             { "<leader>sg", function() require"telescope.builtin".git_files() end, mode = "n" },
-            { "<leader>sp", function() require"telescope.builtin".live_grep() end, mode = "n" },
+            { "<leader>ss", function() require"telescope.builtin".live_grep() end, mode = "n" },
         }
     },
     {
@@ -92,8 +100,8 @@ local lazy_plugins = {
     },
     {
         'lervag/vimtex',
-        ft='latex',
-        init=function()
+        ft='tex',
+        config=function()
             vim.g.vimtex_motion_enabled = 0
             vim.g.vimtex_view_method = 'zathura'
             vim.g.tex_flavor = "latex"

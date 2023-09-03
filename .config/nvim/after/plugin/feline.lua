@@ -1,25 +1,29 @@
 local components = {
     active = { {}, {}},
-    inactive = { {}, {}}
+    inactive = { {} }
 }
 
+midgray = '#757575'
+
 components.active[1] = {
-    {
-        provider = ' '
-    },
     {
         provider = 'vi_mode',
         hl = function()
             return {
                 name = require('feline.providers.vi_mode').get_mode_highlight_name(),
                 fg = require('feline.providers.vi_mode').get_mode_color(),
-                bg = '#d6d6d6',
                 style = 'bold'
             }
         end,
-        right_sep = 'block',
-        left_sep = 'block',
+        left_sep = '  ',
+        right_sep = ' ',
         icon = ''
+    },
+    {
+        provider = '> ',
+        hl = {
+            fg = '#bfbff2'
+        }
     },
     {
         provider = {
@@ -28,7 +32,9 @@ components.active[1] = {
                 type = 'relative',
             }
         },
-        left_sep = ' ',
+        hl = {
+            fg = midgray
+        },
         icon = ''
     },
     {
@@ -46,26 +52,48 @@ components.active[1] = {
         provider = 'diagnostic_warnings',
         left_sep = ' ',
         hl = {
-            fg = '#ffc72e'
+            fg = '#FFC000'
         }
     },
 }
 
 components.active[2] = {
     {
+        provider = 'git_branch',
+        right_sep = '\t',
+        hl = {
+            fg = '#dd7878'
+        }
+    },
+    {
         provider = 'position',
-        left_sep = ' ',
+        right_sep = '\t\t',
     },
     {
         provider = 'line_percentage',
-        left_sep = '\t\t',
         right_sep = ' ',
     },
 }
 
+components.inactive[1] = {
+    {
+        provider = {
+            name = 'file_info',
+            opts = {
+                type = 'relative',
+            }
+        },
+        hl = {
+            fg=midgray
+        },
+        left_sep = ' ',
+        icon = ''
+    },
+}
+
 local light_theme = {
-    bg = "#bababa",
-    fg = "#3b3b3b"
+    bg = '#dce0e8',
+    fg = '#3b3b3b'
 }
 
 local mode_colors = {
