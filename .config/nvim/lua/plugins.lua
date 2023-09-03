@@ -112,6 +112,10 @@ local lazy_plugins = {
         end
     },
     {
+        'eigenfoo/stan-vim',
+        ft='stan'
+    },
+    {
         'iamcco/markdown-preview.nvim',
         build='cd app & yarn install',
         ft='markdown'
