@@ -1,4 +1,4 @@
-vim.keymap.set("n", "Q", ":q")
+vim.keymap.set("n", "Q", ":q<CR>")
 
 -- Move block in visual mode
 vim.keymap.set("v", "<C-j>", ":m '>+1<CR>gv=gv")
