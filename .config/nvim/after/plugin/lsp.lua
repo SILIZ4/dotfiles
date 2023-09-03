@@ -15,14 +15,6 @@ lsp.ensure_installed({
 -- (Optional) Configure lua language server for neovim
 lsp.nvim_workspace()
 
--- Don't preselect first item
-lsp.setup_nvim_cmp({
-    preselect = 'none',
-    completion = {
-    completeopt = 'menu,menuone,noinsert,noselect'
-    },
-})
-
 lsp.on_attach(function(client, bufnr)
 	local opts = {buffer =  bufnr, remap = false}
 
@@ -47,7 +39,7 @@ local cmp_action = require('lsp-zero').cmp_action()
 
 cmp.setup({
     mapping = {
-        ['<CR>'] = cmp.mapping.confirm({select = true}),
+        ['<CR>'] = cmp.mapping.confirm({select = false}),
         ['<C-l>'] = cmp_action.luasnip_jump_forward(),
         ['<C-h>'] = cmp_action.luasnip_jump_backward(),
     },
@@ -56,6 +48,6 @@ cmp.setup({
 -- Avoid bug where completion occurs after deletion of snippet
 local ls = require('luasnip')
 ls.config.set_config({
-	region_check_events = "CursorMoved",
+	region_check_events = 'CursorMoved',
     delete_check_events = 'TextChanged',
 })
