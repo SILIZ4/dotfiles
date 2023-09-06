@@ -18,16 +18,15 @@
 
 !.config/nvim
 !.config/nvim/*
-!.config/nvim/after
 !.config/nvim/after/*
-!.config/nvim/after/plugin
-!.config/nvim/after/plugin/*
 !.config/nvim/after/ftplugin
 !.config/nvim/after/ftplugin/*
-!.config/nvim/lua
-!.config/nvim/lua/*
-!.config/nvim/ftdetect
+!.config/nvim/after/plugin
+!.config/nvim/after/plugin/*
 !.config/nvim/ftdetect/*
+!.config/nvim/lua/*
+!.config/nvim/lua/plugins/*
+!.config/nvim/luasnippets/*
 
 !.local
 !.local/scripts

@@ -24,8 +24,12 @@ require('lazy').setup(
     }
 )
 
-
-vim.cmd.colorscheme "catppuccin-latte"
+if os.getenv("TERM") == "linux" then
+--$TERM == 'linux'
+    vim.cmd.colorscheme "desert"
+else
+    vim.cmd.colorscheme "catppuccin-latte"
+end
 
 -- Display line numbers in netrw
 vim.g.netrw_bufsettings = 'noma nomod nu nowrap ro nobl'
