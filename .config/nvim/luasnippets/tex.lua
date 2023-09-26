@@ -32,8 +32,9 @@ ls.add_snippets("tex", {
                         \centering
                         \includegraphics{<>}
                         \caption{<>}
+                        \label{<>}
                     ]],
-                    { i(1, "figname"), i(2, "caption") },
+                    { i(1, "figname"), i(2, "caption"), i(3, "fig:") },
                     { delimiters = "<>" }
                     ))
 

@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+is_plugged=$(xrandr -q | grep HDMI-1 | awk '{print$2}')
+
+if [ $is_plugged == "connected" ]; then
+    xrandr --output HDMI-1 --auto --right-of eDP-1
+elif [ $is_plugged == "disconnected" ]; then
+    xrandr --output HDMI-1 --off
+fi

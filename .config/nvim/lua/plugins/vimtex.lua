@@ -1,7 +1,8 @@
 return {
     'lervag/vimtex',
+    lazy=false,
     ft='tex',
-    config=function()
+    init=function()
         vim.g.vimtex_motion_enabled = 0
         vim.g.vimtex_view_method = 'zathura'
         vim.g.tex_flavor = "latex"
