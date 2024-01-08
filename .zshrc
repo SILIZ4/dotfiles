@@ -27,14 +27,18 @@ zstyle ':autocomplete:*' widget-style menu-complete # Cycle suggestions with tab
 antigen apply
 
 bindkey -v # vim mode
+bindkey -v '^?' backward-delete-char
+
+# Edit line in vim
+autoload edit-command-line
+zle -N edit-command-line
+bindkey -M vicmd v edit-command-line
 
 # zsh-history-substring-search
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
-
-bindkey -s "^f" 'tmux-sessionizer^M'
 
 KEYTIMEOUT=1
 
@@ -50,6 +54,10 @@ setopt hist_ignore_dups          # Do not record an event that was just recorded
 setopt hist_ignore_space         # Do not record an event starting with a space.
 setopt hist_save_no_dups         # Do not write a duplicate event to the history file.
 setopt share_history             # Share history between all sessions.
+
+
+bindkey -s "^f" 'tmux-sessionizer^M'
+bindkey -s "^g" 'fuzzycd^M'
 
 export LS_COLORS=$LS_COLORS:'di=1;35:*.tex=0;33:*.py=0;33:*.cpp=0;33:*.h=0;33:*.hpp=0;33:*.rs=0;33;'
 path+=("$HOME/.local" "$HOME/.local/scripts/" "$HOME/.local/bin/")
@@ -92,21 +100,31 @@ function clocksync() {
     sudo hwclock --systohc
 }
 
-function ccssh () {
+function ccssh() {
     ssh siliz4@$1.computecanada.ca
 }
 
-function ccfs () {
+function ccfs() {
     sshfs siliz4@$1.computecanada.ca:/home/siliz4/ /mnt/computecanada -o follow_symlinks
 }
 
-function samefile () {
+function samefile() {
     cmp --silent "$1" "$2" && echo "identical files" || echo "different files"
 }
 
 # Activate python environnement
-function pyenv () {
+function pyenv() {
     source ~/Documents/PyEnvs/$1/bin/activate
+}
+
+# Fuzzy-cd
+function fuzzycd() {
+    if [ -z "$1" ]; then
+        targetdir=$(fd --type d -E "bin" -E "build" -E "debug" -E "tmp" -E ".git" -E "dotfiles" -E "PyEnvs" -E "Zoom" | fzf)
+    else
+        targetdir=$(fd --type d -E "bin" -E "build" -E "debug" -E "tmp" -E ".git" -E "dotfiles" -E "PyEnvs" -E "Zoom" --search-path "$1" | fzf)
+    fi
+    cd "${targetdir}"
 }
 
 # The following lines were added by compinstall
@@ -127,3 +145,6 @@ setopt AUTO_PARAM_SLASH
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"

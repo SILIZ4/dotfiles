@@ -200,3 +200,6 @@ pyenv ()
 # POWERLINE_BASH_CONTINUATION=1
 # POWERLINE_BASH_SELECT=1
 # . /usr/lib/python3.9/site-packages/powerline/bindings/bash/powerline.sh
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"

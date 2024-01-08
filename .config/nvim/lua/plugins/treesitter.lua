@@ -1,9 +1,6 @@
 return {
     'nvim-treesitter/nvim-treesitter',
     build = ":TSUpdate",
-    dependencies={
-        'nvim-treesitter/nvim-treesitter-context',
-    },
     init=function()
         require'nvim-treesitter.configs'.setup {
           ensure_installed = { "c", "lua", "vim", "cpp", "rust", "python", "latex" },
