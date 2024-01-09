@@ -43,6 +43,25 @@ return {
                 vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = true, }
             )
 
+
+        require('mason-lspconfig').setup({
+          handlers = {
+            lsp.default_setup,
+            gopls = function()
+              require('lspconfig').gopls.setup({
+                  settings = {
+                    gopls = {
+                      analyses = {
+                        unusedparams = true,
+                      },
+                      usePlaceholders = true,
+                    },
+                },
+              })
+            end,
+          }
+        })
+
         lsp.setup()
 
 

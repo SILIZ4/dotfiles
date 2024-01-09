@@ -38,10 +38,6 @@ components.active[1] = {
         icon = ''
     },
     {
-        provider = 'search_count',
-        left_sep = ' ',
-    },
-    {
         provider = 'diagnostic_errors',
         left_sep = ' |',
         hl = {
@@ -107,9 +103,8 @@ local mode_colors = {
     VREPLACE = '#710A2C',
 }
 
-
 return {
-    'famiu/feline.nvim',
+    'freddiehaddad/feline.nvim',
     dependencies={
         {
             'lewis6991/gitsigns.nvim',
