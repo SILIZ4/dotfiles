@@ -32,7 +32,7 @@ bindkey -v '^?' backward-delete-char
 # Edit line in vim
 autoload edit-command-line
 zle -N edit-command-line
-bindkey -M vicmd v edit-command-line
+bindkey -M vicmd '^v' edit-command-line
 
 # zsh-history-substring-search
 bindkey '^[[A' history-substring-search-up
@@ -86,7 +86,7 @@ alias dotfiles="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"
 alias e="$EDITOR"
 alias vim="vim --servername vimd"
 alias jn="jupyter-notebook"
-alias rm-latex="rm *.out(N) *.bbl(N) *.aux(N) *.log(N) *.blg(N) *.sta(N) *.toc(N) *.nav(N) *.snm(N) *.run.xml(N) *.bcf(N) *.lof(N) *.lot(N) *.dvi(N) *.fls(N) *.fdb_latexmk(N) *.xdv(N) *.synctex.gz(N)"
+alias rm-latex="rm *.out(N) *.bbl(N) *.aux(N) *.log(N) *.blg(N) *.sta(N) *.toc(N) *.nav(N) *.snm(N) *.run.xml(N) *.bcf(N) *.lof(N) *.lot(N) *.dvi(N) *.fls(N) *.fdb_latexmk(N) *.xdv(N) *.synctex.gz(N) *.cb(N) *.cb2(N)"
 alias searx="sudo echo 'starting searx daemon' && sudo -H -u searx bash -c 'cd ~searx; source .profile; python searx-src/searx/webapp.py > /dev/null 2>&1' & disown %1"
 
 # fzf colorscheme
@@ -113,7 +113,7 @@ function samefile() {
 }
 
 # Activate python environnement
-function pyenv() {
+function penv() {
     source ~/Documents/PyEnvs/$1/bin/activate
 }
 
@@ -148,3 +148,9 @@ compinit
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+# ghcup
+export PATH="$HOME/.ghcup/bin:$PATH"
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
